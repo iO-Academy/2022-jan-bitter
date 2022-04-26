@@ -4,12 +4,7 @@ import React from 'react';
 
 import EmailPassword from "supertokens-auth-react/recipe/emailpassword";
 import Session from "supertokens-auth-react/recipe/session";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
 import * as reactRouterDom from "react-router-dom";
 
@@ -23,7 +18,12 @@ SuperTokens.init({
     websiteBasePath: "/auth",
   },
   recipeList: [
-    EmailPassword.init(),
+    EmailPassword.init({
+      palette: {
+        primary: 'yellow',
+        buttonText: 'black'
+      }
+    }),
     Session.init()
   ]
 });

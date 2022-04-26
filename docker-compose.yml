@@ -1,0 +1,25 @@
+version: '3.3'
+
+services: 
+  db:
+    image: mysql:5.7
+    ports:
+      - 127.0.0.1:3306:3306
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_TCP_PORT: 3306
+    restart: unless-stopped
+
+  supertokens:
+    image: registry.supertokens.io/supertokens/supertokens-mysql
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: 172.18.0.2
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE_NAME: "bittr"
+    ports:
+      - 3567:3567
+    restart: unless-stopped
