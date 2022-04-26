@@ -3,6 +3,7 @@ version: '3.3'
 services: 
   db:
     image: mysql:5.7
+    container_name: mySql_db_bittr
     ports:
       - 127.0.0.1:3306:3306
     volumes:
@@ -14,10 +15,11 @@ services:
 
   supertokens:
     image: registry.supertokens.io/supertokens/supertokens-mysql
+    container_name: supertokens
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
-      MYSQL_HOST: 172.18.0.2
+      MYSQL_HOST: mySql_db_bittr
       MYSQL_PORT: 3306
       MYSQL_DATABASE_NAME: "bittr"
     ports:
