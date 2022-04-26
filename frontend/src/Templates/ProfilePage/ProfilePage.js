@@ -1,3 +1,5 @@
+import ProfileAbout from "../../Molecules/ProfileAbout/ProfileAbout";
+
 const ProfilePage = () => {
     return (
         <div>
