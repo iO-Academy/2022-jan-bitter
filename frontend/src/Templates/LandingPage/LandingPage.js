@@ -1,9 +1,12 @@
+import './LandingPage.scss'
+
 const LandingPage = () => {
     return (
         <main>
-            <img src={'lemons-background.png'} alt={'lemon background'}/>
-            
+            <div className={'landing-page-content-container'}>
 
+
+            </div>
 
         </main>
             )
