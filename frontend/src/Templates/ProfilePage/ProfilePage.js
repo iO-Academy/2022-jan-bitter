@@ -1,4 +1,5 @@
 import ProfileAbout from "../../Molecules/ProfileAbout/ProfileAbout";
+import ProfileImage from "../../Atoms/ProfileImage/ProfileImage";
 
 const ProfilePage = () => {
     return (
