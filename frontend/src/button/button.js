@@ -1,3 +1,5 @@
+import './Button.scss'
+
 const Button = (props) => {
     return (
         <div>
