@@ -1,5 +1,5 @@
 import {Route, Routes, BrowserRouter} from 'react-router-dom'
-import LandingPage from "./LandingPage/LandingPage";
+import LandingPage from "./Templates/LandingPage/LandingPage";
 
 const Routing = () => {
     return (

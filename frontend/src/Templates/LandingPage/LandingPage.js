@@ -1,7 +1,7 @@
 const LandingPage = () => {
     return (
         <main>
-            <p>image placeholder</p>
+            <img src={'lemons-background.png'} alt={'lemon background'}/>
 
 
         </main>
