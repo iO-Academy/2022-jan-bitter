@@ -1,25 +1,45 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
-function App() {
+import EmailPassword from "supertokens-auth-react/recipe/emailpassword";
+import Session from "supertokens-auth-react/recipe/session";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
+import * as reactRouterDom from "react-router-dom";
+
+SuperTokens.init({
+  appInfo: {
+    // learn more about this on https://supertokens.com/docs/emailpassword/appinfo
+    appName: "bittr",
+    apiDomain: "http://localhost:3001",
+    websiteDomain: "http://localhost:3000",
+    apiBasePath: "/auth",
+    websiteBasePath: "/auth",
+  },
+  recipeList: [
+    EmailPassword.init(),
+    Session.init()
+  ]
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div>
+        <BrowserRouter>
+          <Routes>
+            {/*This renders the login UI on the /auth route*/}
+            {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
+            {/*Your app routes*/}
+          </Routes>
+        </BrowserRouter>
+      </div>
+  )
 }
 
 export default App;
