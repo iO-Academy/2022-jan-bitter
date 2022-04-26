@@ -6,6 +6,8 @@ import Session from "supertokens-auth-react/recipe/session";
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
 import * as reactRouterDom from "react-router-dom";
+import ProfilePage from "./Templates/ProfilePage/ProfilePage";
+import Routing from "./Routing";
 
 SuperTokens.init({
   appInfo: {
@@ -37,6 +39,7 @@ const App = () => {
             {/*Your app routes*/}
           </Routes>
         </BrowserRouter>
+        <Routing/>
       </div>
   )
 }
