@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React from 'react';
 
 import EmailPassword from "supertokens-auth-react/recipe/emailpassword";
