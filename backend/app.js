@@ -80,15 +80,30 @@ app.use(express.json())
 // ...your API routes
 
 app.get('/bleats', async (req, res) => {
-    const query = 'SELECT * FROM `bleats`'
-    const data = await queryDb(query)
-    res.json(data)
+
+    let jsonResponse
+    if(req.query.userId) {
+        let urlUserId = req.query.userId
+        const userIdQuery = 'SELECT `bleat`, `bleat_time`, `username`, `bleat_user_id`\n' +
+            'FROM `bleats`\n' +
+            'LEFT JOIN `user_data`\n' +
+            'ON `bleats`.`bleat_user_id` = `user_data`.`user_id`\n' +
+            'WHERE `bleats`.`bleat_user_id` = "' + urlUserId + '"'
+        jsonResponse = await queryDb(userIdQuery)
+    } else {
+        const query = 'SELECT * FROM `bleats`'
+        const bleats = await queryDb(query)
+        jsonResponse = bleats
+    }
+
+    res.json(jsonResponse)
 })
 
 app.post('/bleats', async (req, res) => {
     const bleat = req.body.bleat
     const userId = req.body.userId
-    const query = 'INSERT INTO `bleats`(`user_id`, `bleet`) VALUES ("' + userId + '", "' + bleat + '")'
+    const bleatTime = Math.floor(+new Date() / 1000)
+    const query = 'INSERT INTO `bleats`(`bleat_user_id`, `bleat`, `bleat_time`) VALUES ("' + userId + '", "' + bleat + '", "' + bleatTime + '")'
     const data = await queryDb(query)
     res.json(data)
 })
