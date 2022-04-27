@@ -1,5 +1,5 @@
 import './App.scss';
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import EmailPassword from "supertokens-auth-react/recipe/emailpassword";
 import Session from "supertokens-auth-react/recipe/session";
@@ -38,9 +38,7 @@ SuperTokens.init({
 });
 
 const App = () => {
-
   return (
-
       <div>
         <BrowserRouter>
           <Routes>
