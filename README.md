@@ -15,7 +15,7 @@ MySQL db and supertokens core (which is used for auth) docker containers:
 This command also installs a local version of PHP MyAdmin. You will need to use this to create
 the db table and import the sample data.
 
-Open your browser and navigate to: http://localhost:8081
+Open your browser and navigate to: http://localhost:8082
 Log in with the following info:
 * Server: mySql_db_bittr:3307
 * Username: root
