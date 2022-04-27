@@ -37,7 +37,6 @@ const App = () => {
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
             <Route exact path={'/'} element={ <LandingPage /> } />
-            <Route path={'/Profile'} element={ <ProfilePage />} />
           </Routes>
         </BrowserRouter>
       </div>
