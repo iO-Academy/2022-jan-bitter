@@ -6,6 +6,8 @@ import Session from "supertokens-node/recipe/session/index.js";
 import EmailPassword from "supertokens-node/recipe/emailpassword/index.js";
 import { errorHandler } from "supertokens-node/framework/express/index.js";
 import queryDb from "./scripts/queryDb.js";
+import mysql from "promise-mysql";
+import connection from "express";
 
 
 supertokens.init({
@@ -78,6 +80,13 @@ app.use(cors({
 app.use(middleware());
 
 // ...your API routes
+app.get('/users', async (req, res) => {
+    let users = await queryDb('SELECT * FROM `user_data`')
+    res.json(users)
+})
+app.use(errorHandler())
+
+
 
 // Add this AFTER all your routes
 app.use(errorHandler())
