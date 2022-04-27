@@ -4,31 +4,31 @@ import './ProfilePage.scss'
 
 const ProfilePage = () => {
     return (
-        <>
+        <div className="profile-page-container">
             {/*<Navbar />*/}
-            <nav class="profile-page-navbar">
-                <img class="nav-icon" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
-                <img class="nav-logo" src="images/Bittr-logo-no-text.png" alt="Bittr Logo"/>
-                <img class="nav-icon" src="images/back-button-icon.png" alt="Back Button"/>
+            <nav className="profile-page-navbar">
+                <img className="nav-icon" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
+                <img className="nav-logo" src="images/Bittr-logo-no-text.png" alt="Bittr Logo"/>
+                <img className="nav-icon" src="images/back-button-icon.png" alt="Back Button"/>
             </nav>
-            <header class="profile-page-header">
+            <header className="profile-page-header">
                 {/*<ProfileImage />*/}
                 {/*<ProfileAbout />*/}
-                <img class="profile-image" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
-                <div class="profile-page-about-section">
-                    <h1>@Loosername</h1>
+                <img className="profile-image" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
+                <div className="profile-page-about-section">
+                    <h1>@Losername</h1>
                     <p>Really interesting about me section</p>
                 </div>
             </header>
             <main>
-                <div>
+                <div className="bleats-title">
                     <h2>Bleats</h2>
                 </div>
-                <div>
+                <div className="bleats-container">
                     <p>Your bleats go here!</p>
                 </div>
             </main>
-        </>
+        </div>
     )
 }
 

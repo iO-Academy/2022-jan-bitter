@@ -2,14 +2,18 @@
 
 body {
   background-color: $off-white;
-  height: 100vh;
   font-size: 10px;
   font-family: 'Montserrat', sans-serif;
-  padding: 10px
+  font-weight: 300;
+  color: $dark-grey;
+}
+
+.profile-page-container {
+  padding: 0 40px 0 40px;
 }
 
 .profile-page-navbar {
-  height: 100px;
+  height: 75px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -18,6 +22,7 @@ body {
 
 .nav-icon {
   width: 50px;
+  padding: 0 20px 0 20px;
 }
 
 .nav-logo {
@@ -25,8 +30,8 @@ body {
 }
 
 .profile-image {
-  width: 270px;
-  padding: 20px;
+  max-width: 270px;
+  padding: 20px 0;
 }
 
 .profile-page-header {
@@ -35,6 +40,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px 0 30px 0;
 }
 
 .profile-page-about-section {
@@ -47,10 +53,77 @@ body {
   h1 {
     font-size: 2rem;
     margin: 10px;
+    text-transform: uppercase;
   }
   p {
     font-size: 1rem;
     margin: 5px;
     text-align: center;
+  }
+}
+
+main {
+  padding: 10px;
+}
+
+.bleats-title {
+  font-size: 1rem;
+  border: $lemon-yellow solid 2px;
+  width: 100px;
+  height: auto;
+  text-align: center;
+
+  h2 {
+    margin: 5px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+}
+
+.bleats-container {
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background: url("./lemons-background-transparency.png") scroll;
+  }
+  .profile-page-navbar {
+    background-color: $off-white;
+    margin: 20px 0 40px 0;
+    height: 100px;
+    .nav-icon {
+      width: 70px
+    }
+    .nav-logo {
+      width: 90px;
+    }
+  }
+  .profile-page-header {
+    background-color: $off-white;
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  main {
+    background-color: $off-white;
+    margin: 40px 0 20px 0;
+    padding: 30px;
+  }
+  .bleats-title {
+    width: 150px;
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  .bleats-container {
+    p {
+      font-size: 1.25rem;
+    }
   }
 }
