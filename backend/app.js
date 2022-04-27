@@ -5,6 +5,7 @@ import supertokens from "supertokens-node";
 import Session from "supertokens-node/recipe/session/index.js";
 import EmailPassword from "supertokens-node/recipe/emailpassword/index.js";
 import { errorHandler } from "supertokens-node/framework/express/index.js";
+import queryDb from "./scripts/queryDb.js";
 
 
 supertokens.init({
@@ -23,7 +24,45 @@ supertokens.init({
         websiteBasePath: "/auth",
     },
     recipeList: [
-        EmailPassword.init(), // initializes signin / sign up features
+        EmailPassword.init({
+            signUpFeature: {
+                formFields: [{
+                    id: "username"
+                }]
+            },
+            override: {
+                apis: (originalImplementation) => {
+                    return {
+                        ...originalImplementation,
+                        signUpPOST: async function (input) {
+
+                            if (originalImplementation.signUpPOST === undefined) {
+                                throw Error("Should never come here");
+                            }
+
+                            // First we call the original implementation of signUpPOST.
+                            let response = await originalImplementation.signUpPOST(input);
+
+                            // Post sign up response, we check if it was successful
+                            if (response.status === "OK") {
+
+                                // These are the input form fields values that the user used while signing up
+                                let formFields = input.formFields;
+                                // let userId = await queryDb()
+
+                                console.log(formFields[2].value) // username
+                                console.log(response.user.id) // userid
+                                let userId = response.user.id
+                                let username = formFields[2].value
+                                queryDb('INSERT INTO `user_data` (`user_id`,`username`) VALUES ("'+userId+'", "'+username+'")')
+
+                            }
+                            return response;
+                        }
+                    }
+                }
+            }
+        }), // initializes signin / sign up features
         Session.init() // initializes session features
     ]
 });
