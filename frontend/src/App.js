@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
 import * as reactRouterDom from "react-router-dom";
 import LandingPage from "./Templates/LandingPage/LandingPage";
+import ProfilePage from "./Templates/ProfilePage/ProfilePage";
+
 
 SuperTokens.init({
   appInfo: {
