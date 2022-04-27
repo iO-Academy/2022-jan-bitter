@@ -1,6 +1,6 @@
 import './LandingPage.scss'
 import BittrLogo from "../../Atoms/BittrLogo/BittrLogo";
-import Button from "../../button/button";
+import Button from "../../Atoms/button/button";
 
 const LandingPage = () => {
     return (

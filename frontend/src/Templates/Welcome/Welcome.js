@@ -1,11 +1,6 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import ProfilePage from "../ProfilePage/ProfilePage";
 import LandingPage from "../LandingPage/LandingPage";
-import Session, {useSessionContext} from "supertokens-auth-react/recipe/session";
-import {getSuperTokensRoutesForReactRouterDom} from "supertokens-auth-react";
-import * as reactRouterDom from "react-router-dom";
-import React, {useState} from "react"
-import {useEffect} from "react";
+import React from "react"
+import {useSessionContext} from "supertokens-auth-react/recipe/session";
 
 const Welcome = () => {
 
@@ -13,7 +8,7 @@ const Welcome = () => {
 
     return(
         <>
-            {(doesSessionExist) ? (<ProfilePage />) : (<LandingPage />)}
+            {(doesSessionExist) ? (<h1>Profile page</h1>) : (<LandingPage />)}
         </>
 
     )
