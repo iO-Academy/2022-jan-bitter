@@ -1,5 +1,6 @@
 import ProfileAbout from "../../Molecules/ProfileAbout/ProfileAbout";
 import ProfileImage from "../../Atoms/ProfileImage/ProfileImage";
+import './ProfilePage.scss'
 
 const ProfilePage = () => {
     return (
