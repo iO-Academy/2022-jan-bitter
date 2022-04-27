@@ -48,13 +48,10 @@ supertokens.init({
 
                                 // These are the input form fields values that the user used while signing up
                                 let formFields = input.formFields;
-                                // let userId = await queryDb()
 
-                                console.log(formFields[2].value) // username
-                                console.log(response.user.id) // userid
                                 let userId = response.user.id
                                 let username = formFields[2].value
-                                queryDb('INSERT INTO `user_data` (`user_id`,`username`) VALUES ("'+userId+'", "'+username+'")')
+                                await queryDb('INSERT INTO `user_data` (`user_id`,`username`) VALUES ("' + userId + '", "' + username + '")')
 
                             }
                             return response;
