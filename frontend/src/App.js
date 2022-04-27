@@ -1,5 +1,5 @@
 import './App.scss';
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import EmailPassword from "supertokens-auth-react/recipe/emailpassword";
 import Session from "supertokens-auth-react/recipe/session";
@@ -7,6 +7,11 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
 import * as reactRouterDom from "react-router-dom";
 import LandingPage from "./Templates/LandingPage/LandingPage";
+import ProfilePage from "./Templates/ProfilePage/ProfilePage";
+import { useSessionContext } from 'supertokens-auth-react/recipe/session';
+import { EmailPasswordAuth } from 'supertokens-auth-react/recipe/emailpassword';
+import Welcome from "./Templates/Welcome/Welcome";
+import Button from "./button/button";
 
 SuperTokens.init({
   appInfo: {
@@ -38,14 +43,16 @@ SuperTokens.init({
 });
 
 const App = () => {
+
   return (
+
       <div>
         <BrowserRouter>
           <Routes>
             {/*This renders the login UI on the /auth route*/}
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
-            <Route exact path={'/'} element={ <LandingPage /> } />
+                <Route path={'/'} element={<Welcome />} />
           </Routes>
         </BrowserRouter>
       </div>
