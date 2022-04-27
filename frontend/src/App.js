@@ -41,7 +41,6 @@ const App = () => {
             <Route path={'/Profile'} element={ <ProfilePage />} />
           </Routes>
         </BrowserRouter>
-        <Routing/>
       </div>
   )
 }
