@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Using the bundled PHPMyAdmin ###
+PHP MyAdmin has been bundled into the docker to make accessing the db easier. You can acccess
+this on by navigating to `http://localhost:8081`
+Use the following credentials to log in:
+Server: mySql_db_bittr:3307
+Username: root
+Password: password
