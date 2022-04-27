@@ -1,16 +1,12 @@
 import ProfileAbout from "../../Molecules/ProfileAbout/ProfileAbout";
 import ProfileImage from "../../Atoms/ProfileImage/ProfileImage";
 import './ProfilePage.scss'
+import Navbar from "../../Molecules/Navbar/Navbar";
 
 const ProfilePage = () => {
     return (
         <div className="profile-page-container">
-            {/*<Navbar />*/}
-            <nav className="profile-page-navbar">
-                <img className="nav-icon" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
-                <img className="nav-logo" src="images/Bittr-logo-no-text.png" alt="Bittr Logo"/>
-                <img className="nav-icon" src="images/back-button-icon.png" alt="Back Button"/>
-            </nav>
+            <Navbar />
             <header className="profile-page-header">
                 {/*<ProfileImage />*/}
                 {/*<ProfileAbout />*/}

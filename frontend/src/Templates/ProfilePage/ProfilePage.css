@@ -10,23 +10,6 @@ body {
   padding: 0 40px 0 40px;
 }
 
-.profile-page-navbar {
-  height: 75px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-icon {
-  width: 50px;
-  padding: 0 20px 0 20px;
-}
-
-.nav-logo {
-  width: 80px;
-}
-
 .profile-image {
   max-width: 270px;
   padding: 20px 0;
