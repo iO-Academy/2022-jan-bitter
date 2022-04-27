@@ -6,12 +6,6 @@ import Session from "supertokens-auth-react/recipe/session";
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
 import * as reactRouterDom from "react-router-dom";
-import LandingPage from "./Templates/LandingPage/LandingPage";
-import ProfilePage from "./Templates/ProfilePage/ProfilePage";
-import { useSessionContext } from 'supertokens-auth-react/recipe/session';
-import { EmailPasswordAuth } from 'supertokens-auth-react/recipe/emailpassword';
-import Welcome from "./Templates/Welcome/Welcome";
-import Button from "./button/button";
 import RedirectWelcome from "./Templates/RedirectWelcome/RedirectWelcome";
 
 SuperTokens.init({
