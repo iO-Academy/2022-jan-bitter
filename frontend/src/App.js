@@ -20,6 +20,15 @@ SuperTokens.init({
   },
   recipeList: [
     EmailPassword.init({
+      signInAndUpFeature: {
+        signUpForm: {
+          formFields: [{
+            id: "username",
+            label: "Losername",
+            placeholder: "Put something smart..."
+          }]
+        }
+      },
       palette: {
         primary: 'yellow',
         buttonText: 'black'
