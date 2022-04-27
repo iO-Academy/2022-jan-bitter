@@ -12,11 +12,11 @@ const ProfilePage = () => {
                 {/*<ProfileAbout />*/}
                 <img className="profile-image" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
                 <div className="profile-page-about-section">
-                    <h1>@Losername</h1>
+                    <h1 className="username">@Losername</h1>
                     <p>Really interesting about me section</p>
                 </div>
             </header>
-            <main>
+            <main className="profile-page">
                 <div className="bleats-title">
                     <h2>Bleats</h2>
                 </div>

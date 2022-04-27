@@ -1,20 +1,21 @@
 import './LandingPage.scss'
 import BittrLogo from "../../Atoms/BittrLogo/BittrLogo";
-import Button from "../../button/button";
+import Button from "../../Atoms/Button/Button";
+
 
 const LandingPage = () => {
     return (
-        <main>
+        <main className="landing-page">
             <div className={'landing-page-content-container'}>
                 <div className={'landing-page-header'}>
                     <div className={'logo-with-text'}>
                         <h1>Bittr</h1>
                         <BittrLogo />
                     </div>
-                    <h2>In the grand scheme of things, nothing really matters</h2>
+                    <h2 className="slogan">In the grand scheme of things, nothing really matters</h2>
                     </div>
                 <div className={'button-and-label'}>
-                    <p>Sing up</p>
+                    <p>Sign up</p>
                     <p>Or don't, I couldn't care less</p>
                     <Button
                         name={'SIGH-N UP'}
