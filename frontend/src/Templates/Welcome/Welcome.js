@@ -9,29 +9,14 @@ import {useEffect} from "react";
 
 const Welcome = () => {
 
-    const [userId, setUserId] = useState(undefined)
+    let {doesSessionExist} = useSessionContext();
 
-    // let {doesSessionExist} = useSessionContext()
+    return(
+        <>
+            {(doesSessionExist) ? (<ProfilePage />) : (<LandingPage />)}
+        </>
 
-    useEffect(async () => {
-        if (await Session.doesSessionExist()){
-            setUserId(Session.getUserId())
-        }
-    },[])
-    console.log(userId)
-
-    if(userId === undefined) {
-        return (
-            <h1>Landing Page</h1>
-            // <LandingPage />
-        )
-    } else {
-
-        return (
-            <h1>profile</h1>
-            // <ProfilePage />
-        )
-    }
+    )
 
 }
 export default Welcome

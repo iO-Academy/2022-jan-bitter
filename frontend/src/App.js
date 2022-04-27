@@ -12,6 +12,7 @@ import { useSessionContext } from 'supertokens-auth-react/recipe/session';
 import { EmailPasswordAuth } from 'supertokens-auth-react/recipe/emailpassword';
 import Welcome from "./Templates/Welcome/Welcome";
 import Button from "./button/button";
+import RedirectWelcome from "./Templates/RedirectWelcome/RedirectWelcome";
 
 SuperTokens.init({
   appInfo: {
@@ -52,7 +53,7 @@ const App = () => {
             {/*This renders the login UI on the /auth route*/}
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
-                <Route path={'/'} element={<Welcome />} />
+              <Route path={'/'} element={<RedirectWelcome />} />
           </Routes>
         </BrowserRouter>
       </div>
