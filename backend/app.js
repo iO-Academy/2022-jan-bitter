@@ -76,8 +76,24 @@ app.use(cors({
 }));
 
 app.use(middleware());
-
+app.use(express.json())
 // ...your API routes
+
+app.get('/bleats', async (req, res) => {
+    const query = 'SELECT * FROM `bleats`'
+    const data = await queryDb(query)
+    res.json(data)
+})
+
+app.post('/bleats', async (req, res) => {
+    const bleat = req.body.bleat
+    const userId = req.body.userId
+    const query = 'INSERT INTO `bleats`(`user_id`, `bleet`) VALUES ("' + userId + '", "' + bleat + '")'
+    const data = await queryDb(query)
+    res.json(data)
+})
+
+
 
 // Add this AFTER all your routes
 app.use(errorHandler())

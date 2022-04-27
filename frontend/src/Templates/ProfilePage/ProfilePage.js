@@ -1,12 +1,12 @@
 import ProfileAbout from "../../Molecules/ProfileAbout/ProfileAbout";
 import ProfileImage from "../../Atoms/ProfileImage/ProfileImage";
 import './ProfilePage.scss'
-import Navbar from "../../Molecules/Navbar/Navbar";
+// import Navbar from "../../Molecules/Navbar/Navbar";
 
 const ProfilePage = () => {
     return (
         <div className="profile-page-container">
-            <Navbar />
+            {/*<Navbar />*/}
             <header className="profile-page-header">
                 {/*<ProfileImage />*/}
                 {/*<ProfileAbout />*/}
