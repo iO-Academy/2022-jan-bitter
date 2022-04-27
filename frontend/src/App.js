@@ -36,7 +36,8 @@ const App = () => {
             {/*This renders the login UI on the /auth route*/}
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
-            <LandingPage />
+            <Route exact path={'/'} element={ <LandingPage /> } />
+            <Route path={'/Profile'} element={ <ProfilePage />} />
           </Routes>
         </BrowserRouter>
       </div>
