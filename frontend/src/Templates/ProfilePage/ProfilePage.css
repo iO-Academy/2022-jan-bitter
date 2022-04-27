@@ -1,6 +1,55 @@
 body {
   background-color: #f2efeb;
   height: 100vh;
+  font-size: 10px;
+  font-family: "Montserrat", sans-serif;
+  padding: 10px;
+}
+
+.profile-page-navbar {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-icon {
+  width: 50px;
+}
+
+.nav-logo {
+  width: 80px;
+}
+
+.profile-image {
+  width: 270px;
+  padding: 20px;
+}
+
+.profile-page-header {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-page-about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+.profile-page-about-section h1 {
+  font-size: 2rem;
+  margin: 10px;
+}
+.profile-page-about-section p {
+  font-size: 1rem;
+  margin: 5px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=ProfilePage.css.map */
