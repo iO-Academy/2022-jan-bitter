@@ -1,0 +1,35 @@
+@import "../../Variables.scss";
+
+.bleatCard {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px;
+  background-color: $off-white;
+  border: 4px solid $lemon-yellow;
+
+  img {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+.bleatContents {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  gap: 10px;
+  justify-content: space-evenly;
+
+  h2 {
+    color: #3b3a38;
+  }
+}
+
+.bleatText {
+  font-size: 1.25rem;
+}
+
+.bleatTime {
+  font-size: 1rem;
+}

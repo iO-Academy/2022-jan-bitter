@@ -114,7 +114,11 @@ app.get('/bleats', async (req, res) => {
             'ORDER BY `bleat_time` DESC'
         jsonResponse = await queryDb(userIdQuery)
     } else {
-        const query = 'SELECT * FROM `bleats` ORDER BY `bleat_time` DESC'
+        const query = 'SELECT `bleat`, `bleat_time`, `username`, `bleat_user_id`\n' +
+            'FROM `bleats`\n' +
+            'LEFT JOIN `user_data`\n' +
+            'ON `bleats`.`bleat_user_id` = `user_data`.`user_id`\n' +
+            'ORDER BY `bleat_time` DESC'
         const bleats = await queryDb(query)
         jsonResponse = bleats
     }
