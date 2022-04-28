@@ -1,0 +1,73 @@
+@import "../../Variables.scss";
+
+.landing-page-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.landing-page-image-container {
+  overflow-y: hidden;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.landing-page-content-container {
+  min-width: 600px;
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  background-color: #F2EFEB;
+  padding: 0 40px;
+}
+
+.landing-page-header {
+  display: flex;
+  margin-top: 150px;
+}
+
+.landing-page-h1 {
+  margin: 0;
+}
+
+.landing-page-bittr-header-logo {
+  width: auto;
+  height: 165px;
+}
+
+.landing-page-signup-in {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.landing-page-p {
+  font-size: 1.5rem;
+}
+
+.landing-page-subtext {
+  font-size: 1rem;
+}
+
+.landing-page-button {
+  margin: 10px 0;
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-weight: 600;
+  padding: 20px 35px;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.sign-up-button {
+  background-color: #8D8F84;
+}
+
+.sign-in-button {
+  background-color: #F9D905;
+}
