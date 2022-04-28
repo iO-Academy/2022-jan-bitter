@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
 import * as reactRouterDom from "react-router-dom";
 import RedirectWelcome from "./Templates/RedirectWelcome/RedirectWelcome";
+import Bleat from "./Atoms/Bleat/Bleat";
+import BleatFeed from "./Molecules/BleatFeed/BleatFeed";
 import ProfilePage from "./Templates/ProfilePage/ProfilePage";
 
 const apiFetch = async (url) => {
@@ -51,7 +53,6 @@ SuperTokens.init({
 });
 
 const App = () => {
-
   return (
       <div>
         <BrowserRouter>
@@ -60,6 +61,7 @@ const App = () => {
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
               <Route path={'/'} element={<RedirectWelcome />} />
+              <Route path={'/BleatFeed'} element={<BleatFeed apiFetch={apiFetch}/>} />
             <Route path={'/:username'} element={<ProfilePage apiFetch={apiFetch}/>} />
           </Routes>
         </BrowserRouter>

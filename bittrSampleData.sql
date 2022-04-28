@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mySql_db_bittr:3307:3307
--- Generation Time: Apr 28, 2022 at 06:58 AM
+-- Generation Time: Apr 28, 2022 at 02:42 PM
 -- Server version: 10.7.3-MariaDB-1:10.7.3+maria~focal
 -- PHP Version: 7.4.20
 
@@ -73,9 +73,7 @@ INSERT INTO `user_data` (`id`, `user_id`, `username`, `user_bio`) VALUES
 (2, 'test_user_id', 'test_user_name', NULL),
 (3, 'test_user_id', 'test_user_name', NULL),
 (4, 'test_user_id', 'test_user_name', NULL),
-(5, 'e2f392cf-113b-48bc-9e85-493dcdc2a64c', 'Ihopethisworks!', NULL),
-(6, '3a07a54d-6df9-4bed-91c1-c980aba4aee9', 'maxwellius', NULL),
-(7, 'fb0d8830-5f04-428a-8819-4bfac17b7a64', 'maxiamo', NULL);
+(5, 'e2f392cf-113b-48bc-9e85-493dcdc2a64c', 'Ihopethisworks!', NULL);
 
 --
 -- Indexes for dumped tables
@@ -107,7 +105,7 @@ ALTER TABLE `bleats`
 -- AUTO_INCREMENT for table `user_data`
 --
 ALTER TABLE `user_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

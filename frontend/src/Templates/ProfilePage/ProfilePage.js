@@ -2,6 +2,8 @@ import './ProfilePage.scss'
 import Navbar from "../../Molecules/Navbar/Navbar";
 import React, {useEffect, useState} from 'react';
 import { useParams} from 'react-router-dom';
+import Bleat from "../../Atoms/Bleat/Bleat";
+import NewBleat from "../../Molecules/NewBleat/NewBleat";
 
 const ProfilePage = (props) => {
 
@@ -19,8 +21,8 @@ const ProfilePage = (props) => {
         }
         fetchUserProfileDate()
         const retrieveUserBleats = async () => {
-            let response = await props.apiFetch('/bleats/' + username)
-            setBleats(response.data[0])
+            let response = await props.apiFetch('/bleats/?username=' + username)
+            setBleats(response.data)
         }
         retrieveUserBleats()
     }, [])
@@ -40,9 +42,10 @@ const ProfilePage = (props) => {
                 <div className="bleats-title">
                     <h2 className="profile-page-h2">Bleats</h2>
                 </div>
-                {/*<div className="bleats-container">*/}
-                {/*    {bleats.map((bleat) => <Bleat username={bleat.username} bleat={bleat.bleat} bleat_time={bleat_time}/>})*/}
-                {/*</div>*/}
+                <NewBleat />
+                <div className="bleats-container">
+                    {bleats.map((bleat) => <Bleat username={bleat.username} bleat={bleat.bleat} bleat_time={bleat.bleat_time} />)}
+                </div>
             </main>
         </div>
     )
