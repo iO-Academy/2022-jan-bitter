@@ -2,9 +2,9 @@ import './Button.scss'
 
 const Button = (props) => {
     return (
-        <div>
+        <a href={props.href}>
             <button className={props.style} onClick={props.handleClick}>{props.name}</button>
-        </div>
+        </a>
     )
 }
 
