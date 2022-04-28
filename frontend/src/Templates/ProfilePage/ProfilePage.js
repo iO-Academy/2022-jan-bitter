@@ -40,9 +40,9 @@ const ProfilePage = (props) => {
                 <div className="bleats-title">
                     <h2 className="profile-page-h2">Bleats</h2>
                 </div>
-                <div className="bleats-container">
-                    {/*<p className="bleats-container-p">Your bleats go here!</p>*/}
-                </div>
+                {/*<div className="bleats-container">*/}
+                {/*    {bleats.map((bleat) => <Bleat username={bleat.username} bleat={bleat.bleat} bleat_time={bleat_time}/>})*/}
+                {/*</div>*/}
             </main>
         </div>
     )

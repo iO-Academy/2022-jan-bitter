@@ -15,11 +15,22 @@ const Navbar = () => {
     return (
         <>
             <nav className="profile-page-navbar">
-                <img className="profile-icon" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
-                <BittrLogo style={"profile-page-logo"}/>
+                <div>
+                    <a>
+                        <img className="profile-icon" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
+                        <p className="my-profile-p">My Profile</p>
+                    </a>
+                </div>
+                <div>
+                    <a>
+                        <BittrLogo style={"navbar-logo"}/>
+                        <p className="home-p">Home</p>
+                    </a>
+                </div>
                 <div className="log-out-button-container">
                     <a onClick={handleClick}>
                         <img className="logout-icon" src="images/back-button-icon.png" alt="Profile image placeholder"/>
+                        <p className="logout-p">Logout</p>
                     </a>
                 </div>
             </nav>

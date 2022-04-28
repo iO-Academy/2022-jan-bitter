@@ -7,10 +7,6 @@
   padding: 20px 0;
 }
 
-.profile-page-logo {
-  width: 70px;
-}
-
 .profile-page-header {
   min-height: 300px;
   display: flex;
@@ -72,12 +68,6 @@
     background-color: #f2efeb;
     margin: 20px 0 40px 0;
     height: 100px;
-  }
-  .profile-page-navbar .nav-icon {
-    width: 70px;
-  }
-  .profile-page-navbar .profile-page-logo {
-    width: 90px;
   }
 
   .profile-page-header {
