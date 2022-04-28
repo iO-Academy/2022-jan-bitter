@@ -88,7 +88,8 @@ app.get('/bleats', async (req, res) => {
             'FROM `bleats`\n' +
             'LEFT JOIN `user_data`\n' +
             'ON `bleats`.`bleat_user_id` = `user_data`.`user_id`\n' +
-            'WHERE `bleats`.`bleat_user_id` = "' + urlUserId + '"'
+            'WHERE `bleats`.`bleat_user_id` = "' + urlUserId + '"' +
+            'ORDER BY `bleat_time`'
         jsonResponse = await queryDb(userIdQuery)
     } else {
         const query = 'SELECT * FROM `bleats`'
