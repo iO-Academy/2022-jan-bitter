@@ -1,7 +1,13 @@
+import './HomePage.scss'
+
 const HomePage = () => {
     return(
         <>
-            <main className={'home-page'}>
+            {/*<NavBar />*/}
+            <main className={'home-page-container'}>
+                <div className={'page-header'}>
+                    <h1>HOME</h1>
+                </div>
                 <div className={'write-bleat-container'}>
                     {/*insert componet here */}
                 </div>

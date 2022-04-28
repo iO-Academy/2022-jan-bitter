@@ -1,2 +1,83 @@
-@import "../../Variables.scss";
+@import '../../Variables.scss';
+
+.home-page-container {
+  padding: 0 40px 0 40px;
+
+}
+
+.page-header {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 30px 0;
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin: 10px;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 1rem;
+    margin: 5px;
+    text-align: center;
+  }
+}
+
+main {
+  padding: 10px;
+}
+
+.bleats-title {
+  font-size: 1rem;
+  border: $lemon-yellow solid 2px;
+  width: 125px;
+  height: auto;
+  text-align: center;
+
+  h2 {
+    margin: 5px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+}
+
+.bleats-container {
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background: url("lemons-background-transparency.png") scroll;
+  }
+
+  .profile-page-header {
+    background-color: $off-white;
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  main {
+    background-color: $off-white;
+    margin: 40px 0 20px 0;
+    padding: 30px;
+  }
+  .bleats-title {
+    width: 150px;
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  .bleats-container {
+    p {
+      font-size: 1.25rem;
+    }
+  }
+}
 
