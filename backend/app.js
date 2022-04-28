@@ -6,6 +6,7 @@ import Session from "supertokens-node/recipe/session/index.js";
 import EmailPassword from "supertokens-node/recipe/emailpassword/index.js";
 import { errorHandler } from "supertokens-node/framework/express/index.js";
 import queryDb from "./scripts/queryDb.js";
+import validator from 'validator'
 
 
 supertokens.init({
@@ -76,8 +77,42 @@ app.use(cors({
 }));
 
 app.use(middleware());
-
+app.use(express.json())
 // ...your API routes
+
+app.get('/bleats', async (req, res) => {
+
+    let jsonResponse
+    if(req.query.userId) {
+        let urlUserId = req.query.userId
+        const userIdQuery = 'SELECT `bleat`, `bleat_time`, `username`, `bleat_user_id`\n' +
+            'FROM `bleats`\n' +
+            'LEFT JOIN `user_data`\n' +
+            'ON `bleats`.`bleat_user_id` = `user_data`.`user_id`\n' +
+            'WHERE `bleats`.`bleat_user_id` = "' + urlUserId + '"' +
+            'ORDER BY `bleat_time` DESC'
+        jsonResponse = await queryDb(userIdQuery)
+    } else {
+        const query = 'SELECT * FROM `bleats` ORDER BY `bleat_time` DESC'
+        const bleats = await queryDb(query)
+        jsonResponse = bleats
+    }
+
+    res.json(jsonResponse)
+})
+
+app.post('/bleats', async (req, res) => {
+    const bleat = req.body.bleat
+    const sanitisedBleat = validator.escape(bleat)
+    const userId = req.body.userId
+    const sanitiseUserID = validator.escape(userId)
+    const bleatTime = Math.floor(+new Date() / 1000)
+    const query = 'INSERT INTO `bleats`(`bleat_user_id`, `bleat`, `bleat_time`) VALUES ("' + sanitiseUserID + '", "' + sanitisedBleat + '", "' + bleatTime + '")'
+    const data = await queryDb(query)
+    res.json(data)
+})
+
+
 
 // Add this AFTER all your routes
 app.use(errorHandler())
