@@ -40,6 +40,18 @@ SuperTokens.init({
 });
 
 const App = () => {
+
+  const apiFetch = async (url) => {
+    let data = await fetch(url)
+    let jsonData = await data.json()
+    return jsonData
+  }
+
+  const fetchUserDetails = async () => {
+    let response = await apiFetch('http://localhost:3000/users')
+    return response
+  }
+
   return (
       <div>
         <BrowserRouter>
@@ -48,7 +60,7 @@ const App = () => {
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
             <Route exact path={'/'} element={ <LandingPage /> } />
-            <Route exact path={'/Profile'} element={ <ProfilePage /> } />
+            <Route exact path={'/Profile'} element={ <ProfilePage/> } />
           </Routes>
         </BrowserRouter>
       </div>

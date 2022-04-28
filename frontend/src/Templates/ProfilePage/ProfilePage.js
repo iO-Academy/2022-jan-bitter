@@ -3,7 +3,7 @@ import ProfileImage from "../../Atoms/ProfileImage/ProfileImage";
 import './ProfilePage.scss'
 import Navbar from "../../Molecules/Navbar/Navbar";
 
-const ProfilePage = () => {
+const ProfilePage = (props) => {
     return (
         <div className="profile-page-container">
             <Navbar />
@@ -12,7 +12,7 @@ const ProfilePage = () => {
                 {/*<ProfileAbout />*/}
                 <img className="profile-image" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
                 <div className="profile-page-about-section">
-                    <h1 className="username">@Losername</h1>
+                    <h1 className="username">@losername</h1>
                     <p>Really interesting about me section</p>
                 </div>
             </header>
