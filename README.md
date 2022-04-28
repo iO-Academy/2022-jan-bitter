@@ -33,7 +33,7 @@ steps below:
 1. Create a new table in MySql called 'bittr'.
 2. Import the 'bittrSampleData.sql' to your 'bittr' db to import the tables
 3. Follow the supertokens docs to set up an instance of 'core' that is connected to your db:
-https://supertokens.com/docs/emailpassword/quick-setup/core/with-docker
+https://supertokens.com/docs/emailpassword/quick-setup/core/without-docker
 
 ## To run the program ##
 
