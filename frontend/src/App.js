@@ -10,7 +10,7 @@ import RedirectWelcome from "./Templates/RedirectWelcome/RedirectWelcome";
 import ProfilePage from "./Templates/ProfilePage/ProfilePage";
 
 const apiFetch = async (url) => {
-  let data = await fetch('http://127.0.0.1:3001'+url)
+  let data = await fetch('http://127.0.0.1:3001'+ url)
   return await data.json()
 }
 
@@ -52,17 +52,6 @@ SuperTokens.init({
 
 const App = () => {
 
-  const apiFetch = async (url) => {
-    let data = await fetch(url)
-    let jsonData = await data.json()
-    return jsonData
-  }
-
-  const fetchUserDetails = async () => {
-    let response = await apiFetch('http://localhost:3001/users')
-    return response
-  }
-
   return (
       <div>
         <BrowserRouter>
@@ -71,7 +60,7 @@ const App = () => {
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
               <Route path={'/'} element={<RedirectWelcome />} />
-            <Route path={'/Profile'} element={<ProfilePage/>} />
+            <Route path={'/:username'} element={<ProfilePage apiFetch={apiFetch}/>} />
           </Routes>
         </BrowserRouter>
       </div>

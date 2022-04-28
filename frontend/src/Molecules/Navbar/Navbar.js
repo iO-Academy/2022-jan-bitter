@@ -1,4 +1,3 @@
-import Button from "../../Atoms/Button/Button";
 import React from "react";
 import { signOut } from "supertokens-auth-react/recipe/emailpassword";
 import './Navbar.scss'

@@ -102,18 +102,27 @@ app.get('/userId/:userId', async (req, res) => {
     }
 })
 
+app.post('/username/:username', async (req, res) => {
+    const bio = req.body.user_bio
+    const sanitisedBio = validator.escape(bio)
+    const username = req.body.username
+    const query = 'UPDATE `user_data` SET `user_bio` = "' + sanitisedBio + '" WHERE `username` = "' + username + '";'
+    const data = await queryDb(query)
+    res.json(createApiResponse(200, 'Bio received', data))
+})
+
 app.get('/bleats', async (req, res) => {
 
     let jsonResponse
-    if(req.query.userId) {
-        let urlUserId = req.query.userId
-        const userIdQuery = 'SELECT `bleat`, `bleat_time`, `username`, `bleat_user_id`\n' +
+    if(req.query.username) {
+        let urlUsername = req.query.username
+        const usernameQuery = 'SELECT `bleat`, `bleat_time`, `username`, `bleat_user_id`\n' +
             'FROM `bleats`\n' +
             'LEFT JOIN `user_data`\n' +
             'ON `bleats`.`bleat_user_id` = `user_data`.`user_id`\n' +
-            'WHERE `bleats`.`bleat_user_id` = "' + urlUserId + '"' +
+            'WHERE `user_data`.`username` = "' + urlUsername + '"' +
             'ORDER BY `bleat_time` DESC'
-        jsonResponse = await queryDb(userIdQuery)
+        jsonResponse = await queryDb(usernameQuery)
     } else {
         const query = 'SELECT * FROM `bleats` ORDER BY `bleat_time` DESC'
         const bleats = await queryDb(query)
