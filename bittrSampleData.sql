@@ -2,9 +2,9 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: db:3306
--- Generation Time: Apr 26, 2022 at 11:58 AM
--- Server version: 5.7.37
+-- Host: mySql_db_bittr:3307:3307
+-- Generation Time: Apr 28, 2022 at 06:58 AM
+-- Server version: 10.7.3-MariaDB-1:10.7.3+maria~focal
 -- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -24,298 +24,90 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `all_auth_recipe_users`
+-- Table structure for table `bleats`
 --
 
-CREATE TABLE `all_auth_recipe_users` (
+CREATE TABLE `bleats` (
+  `id` int(11) NOT NULL,
+  `bleat_user_id` char(36) NOT NULL,
+  `bleat` varchar(255) NOT NULL,
+  `bleat_time` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bleats`
+--
+
+INSERT INTO `bleats` (`id`, `bleat_user_id`, `bleat`, `bleat_time`) VALUES
+(1, '994a373d-eaae-4dcd-b39a-b0bfe7e0f66a', 'bal bla bla ', 0),
+(2, '994a373d-eaae-4dcd-b39a-b0bfe7e0f66a', 'bal bla bla ', 0),
+(3, '994a373d-eaae-4dcd-b39a-b0bfe7e0f66a', 'it worked', 0),
+(4, 'ef26ac69-533f-43b8-bdde-2c080e96aed6', 'my only bleat', 0),
+(5, 'ef26ac69-533f-43b8-bdde-2c080e96aed6', 'my only bleat with time', 1651088433),
+(6, 'ef26ac69-533f-43b8-bdde-2c080e96aed6', 'my bleat with time again', 1651088499),
+(7, 'ef26ac69-533f-43b8-bdde-2c080e96aed6', 'my bleat with time again', 1651091643),
+(8, 'ef26ac69-533f-43b8-bdde-2c080e96aed6', 'my bleat with time again', 1651091647),
+(9, 'ef26ac69-533f-43b8-bdde-2c080e96aed6', 'my bleat with time again', 1651091649),
+(10, 'ef26ac69-533f-43b8-bdde-2c080e96aed6', 'my bleat with time again', 1651091650),
+(11, 'ef26ac69-533f-43b8-bdde-2c080e96aed6', 'new id', 1651092642);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_data`
+--
+
+CREATE TABLE `user_data` (
+  `id` int(11) NOT NULL,
   `user_id` char(36) NOT NULL,
-  `recipe_id` varchar(128) NOT NULL,
-  `time_joined` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+  `username` char(36) NOT NULL,
+  `user_bio` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Table structure for table `emailpassword_pswd_reset_tokens`
+-- Dumping data for table `user_data`
 --
 
-CREATE TABLE `emailpassword_pswd_reset_tokens` (
-  `user_id` char(36) NOT NULL,
-  `token` varchar(128) NOT NULL,
-  `token_expiry` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emailpassword_users`
---
-
-CREATE TABLE `emailpassword_users` (
-  `user_id` char(36) NOT NULL,
-  `email` varchar(256) NOT NULL,
-  `password_hash` varchar(128) NOT NULL,
-  `time_joined` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emailverification_tokens`
---
-
-CREATE TABLE `emailverification_tokens` (
-  `user_id` varchar(128) NOT NULL,
-  `email` varchar(256) NOT NULL,
-  `token` varchar(128) NOT NULL,
-  `token_expiry` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emailverification_verified_emails`
---
-
-CREATE TABLE `emailverification_verified_emails` (
-  `user_id` varchar(128) NOT NULL,
-  `email` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jwt_signing_keys`
---
-
-CREATE TABLE `jwt_signing_keys` (
-  `key_id` varchar(255) NOT NULL,
-  `key_string` text NOT NULL,
-  `algorithm` varchar(10) NOT NULL,
-  `created_at` bigint(20) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `key_value`
---
-
-CREATE TABLE `key_value` (
-  `name` varchar(128) NOT NULL,
-  `value` text,
-  `created_at_time` bigint(20) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `passwordless_codes`
---
-
-CREATE TABLE `passwordless_codes` (
-  `code_id` char(36) NOT NULL,
-  `device_id_hash` char(44) NOT NULL,
-  `link_code_hash` char(44) NOT NULL,
-  `created_at` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `passwordless_devices`
---
-
-CREATE TABLE `passwordless_devices` (
-  `device_id_hash` char(44) NOT NULL,
-  `email` varchar(256) DEFAULT NULL,
-  `phone_number` varchar(256) DEFAULT NULL,
-  `link_code_salt` char(44) NOT NULL,
-  `failed_attempts` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `passwordless_users`
---
-
-CREATE TABLE `passwordless_users` (
-  `user_id` char(36) NOT NULL,
-  `email` varchar(256) DEFAULT NULL,
-  `phone_number` varchar(256) DEFAULT NULL,
-  `time_joined` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `session_access_token_signing_keys`
---
-
-CREATE TABLE `session_access_token_signing_keys` (
-  `created_at_time` bigint(20) UNSIGNED NOT NULL,
-  `value` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `session_info`
---
-
-CREATE TABLE `session_info` (
-  `session_handle` varchar(255) NOT NULL,
-  `user_id` varchar(128) NOT NULL,
-  `refresh_token_hash_2` varchar(128) NOT NULL,
-  `session_data` text,
-  `expires_at` bigint(20) UNSIGNED NOT NULL,
-  `created_at_time` bigint(20) UNSIGNED NOT NULL,
-  `jwt_user_payload` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `thirdparty_users`
---
-
-CREATE TABLE `thirdparty_users` (
-  `third_party_id` varchar(28) NOT NULL,
-  `third_party_user_id` varchar(128) NOT NULL,
-  `user_id` char(36) NOT NULL,
-  `email` varchar(256) NOT NULL,
-  `time_joined` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_metadata`
---
-
-CREATE TABLE `user_metadata` (
-  `user_id` varchar(128) NOT NULL,
-  `user_metadata` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `user_data` (`id`, `user_id`, `username`, `user_bio`) VALUES
+(1, '176d1e13-36cf-4338-85e3-611234464345', 'maxwellius', 'hello, my name is max and this is my bio'),
+(2, 'test_user_id', 'test_user_name', NULL),
+(3, 'test_user_id', 'test_user_name', NULL),
+(4, 'test_user_id', 'test_user_name', NULL),
+(5, 'e2f392cf-113b-48bc-9e85-493dcdc2a64c', 'Ihopethisworks!', NULL),
+(6, '3a07a54d-6df9-4bed-91c1-c980aba4aee9', 'maxwellius', NULL),
+(7, 'fb0d8830-5f04-428a-8819-4bfac17b7a64', 'maxiamo', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `all_auth_recipe_users`
+-- Indexes for table `bleats`
 --
-ALTER TABLE `all_auth_recipe_users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD KEY `all_auth_recipe_users_pagination_index` (`time_joined`,`user_id`);
+ALTER TABLE `bleats`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `emailpassword_pswd_reset_tokens`
+-- Indexes for table `user_data`
 --
-ALTER TABLE `emailpassword_pswd_reset_tokens`
-  ADD PRIMARY KEY (`user_id`,`token`),
-  ADD UNIQUE KEY `token` (`token`),
-  ADD KEY `emailpassword_password_reset_token_expiry_index` (`token_expiry`);
+ALTER TABLE `user_data`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `emailpassword_users`
---
-ALTER TABLE `emailpassword_users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Indexes for table `emailverification_tokens`
---
-ALTER TABLE `emailverification_tokens`
-  ADD PRIMARY KEY (`user_id`,`email`,`token`),
-  ADD UNIQUE KEY `token` (`token`),
-  ADD KEY `emailverification_tokens_index` (`token_expiry`);
-
---
--- Indexes for table `emailverification_verified_emails`
---
-ALTER TABLE `emailverification_verified_emails`
-  ADD PRIMARY KEY (`user_id`,`email`);
-
---
--- Indexes for table `jwt_signing_keys`
---
-ALTER TABLE `jwt_signing_keys`
-  ADD PRIMARY KEY (`key_id`);
-
---
--- Indexes for table `key_value`
---
-ALTER TABLE `key_value`
-  ADD PRIMARY KEY (`name`);
-
---
--- Indexes for table `passwordless_codes`
---
-ALTER TABLE `passwordless_codes`
-  ADD PRIMARY KEY (`code_id`),
-  ADD UNIQUE KEY `link_code_hash` (`link_code_hash`),
-  ADD KEY `device_id_hash` (`device_id_hash`),
-  ADD KEY `passwordless_codes_created_at_index` (`created_at`);
-
---
--- Indexes for table `passwordless_devices`
---
-ALTER TABLE `passwordless_devices`
-  ADD PRIMARY KEY (`device_id_hash`),
-  ADD KEY `passwordless_devices_email_index` (`email`),
-  ADD KEY `passwordless_devices_phone_number_index` (`phone_number`);
-
---
--- Indexes for table `passwordless_users`
---
-ALTER TABLE `passwordless_users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `phone_number` (`phone_number`);
-
---
--- Indexes for table `session_access_token_signing_keys`
---
-ALTER TABLE `session_access_token_signing_keys`
-  ADD PRIMARY KEY (`created_at_time`);
-
---
--- Indexes for table `session_info`
---
-ALTER TABLE `session_info`
-  ADD PRIMARY KEY (`session_handle`);
-
---
--- Indexes for table `thirdparty_users`
---
-ALTER TABLE `thirdparty_users`
-  ADD PRIMARY KEY (`third_party_id`,`third_party_user_id`),
-  ADD UNIQUE KEY `user_id` (`user_id`);
-
---
--- Indexes for table `user_metadata`
---
-ALTER TABLE `user_metadata`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `emailpassword_pswd_reset_tokens`
+-- AUTO_INCREMENT for table `bleats`
 --
-ALTER TABLE `emailpassword_pswd_reset_tokens`
-  ADD CONSTRAINT `emailpassword_pswd_reset_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `emailpassword_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `bleats`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Constraints for table `passwordless_codes`
+-- AUTO_INCREMENT for table `user_data`
 --
-ALTER TABLE `passwordless_codes`
-  ADD CONSTRAINT `passwordless_codes_ibfk_1` FOREIGN KEY (`device_id_hash`) REFERENCES `passwordless_devices` (`device_id_hash`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `user_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
