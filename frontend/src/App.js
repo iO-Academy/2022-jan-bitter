@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
 import * as reactRouterDom from "react-router-dom";
 import RedirectWelcome from "./Templates/RedirectWelcome/RedirectWelcome";
+import DELETETHIS from "./DELETETHIS";
 
 const apiFetch = async (url) => {
   let data = await fetch('http://127.0.0.1:3001'+url)
