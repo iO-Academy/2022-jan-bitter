@@ -1,17 +1,14 @@
-@import "../../Variables.scss";
-
 .bleatCard {
   display: flex;
   flex-direction: row;
   width: 750px;
   padding: 10px;
-  background-color: $off-white;
-  border: 4px solid $lemon-yellow;
-
-  img {
-    width: 75px;
-    height: 75px;
-  }
+  background-color: #f2efeb;
+  border: 4px solid #f9d905;
+}
+.bleatCard img {
+  width: 75px;
+  height: 75px;
 }
 
 .bleatContents {
@@ -20,10 +17,9 @@
   padding-left: 10px;
   gap: 10px;
   justify-content: space-evenly;
-
-  h2 {
-    color: #3b3a38;
-  }
+}
+.bleatContents h2 {
+  color: #3b3a38;
 }
 
 .bleatText {
@@ -33,3 +29,5 @@
 .bleatTime {
   font-size: 1rem;
 }
+
+/*# sourceMappingURL=Bleat.css.map */
