@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
 import * as reactRouterDom from "react-router-dom";
 import RedirectWelcome from "./Templates/RedirectWelcome/RedirectWelcome";
+import ProfilePage from "./Templates/ProfilePage/ProfilePage";
 
 SuperTokens.init({
   appInfo: {
@@ -46,7 +47,7 @@ const App = () => {
   }
 
   const fetchUserDetails = async () => {
-    let response = await apiFetch('http://localhost:3000/users')
+    let response = await apiFetch('http://localhost:300/users')
     return response
   }
 
@@ -58,6 +59,7 @@ const App = () => {
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
               <Route path={'/'} element={<RedirectWelcome />} />
+            <Route path={'/Profile'} element={<ProfilePage/>} />
           </Routes>
         </BrowserRouter>
       </div>

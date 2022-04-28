@@ -1,11 +1,3 @@
-body {
-  background-color: #f2efeb;
-  font-size: 10px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  color: #3b3a38;
-}
-
 .profile-page-container {
   padding: 0 40px 0 40px;
 }
@@ -13,6 +5,10 @@ body {
 .profile-image {
   max-width: 270px;
   padding: 20px 0;
+}
+
+.profile-page-logo {
+  width: 70px;
 }
 
 .profile-page-header {
@@ -31,18 +27,19 @@ body {
   justify-content: center;
   width: 80%;
 }
-.profile-page-about-section h1 {
+.profile-page-about-section .profile-page-h1 {
   font-size: 2rem;
   margin: 10px;
   text-transform: uppercase;
 }
-.profile-page-about-section p {
+.profile-page-about-section .profile-page-p {
   font-size: 1rem;
   margin: 5px;
   text-align: center;
+  color: #3b3a38;
 }
 
-.profile-page {
+.profile-page-bleats-container {
   padding: 10px;
 }
 
@@ -53,19 +50,22 @@ body {
   height: auto;
   text-align: center;
 }
-.bleats-title h2 {
+.bleats-title .profile-page-h2 {
   margin: 5px;
   font-size: 1.5rem;
   text-transform: uppercase;
+  color: #3b3a38;
 }
 
-.bleats-container p {
+.bleats-container .bleats-container-p {
   font-size: 1rem;
+  color: #3b3a38;
+  margin: 10px 0 10px 0;
 }
 
 @media only screen and (min-width: 600px) {
   body {
-    background: url("./lemons-background-transparency.png") scroll;
+    background: url("lemons-background-transparency.png") scroll;
   }
 
   .profile-page-navbar {
@@ -76,6 +76,9 @@ body {
   .profile-page-navbar .nav-icon {
     width: 70px;
   }
+  .profile-page-navbar .profile-page-logo {
+    width: 90px;
+  }
 
   .profile-page-header {
     background-color: #f2efeb;
@@ -83,11 +86,11 @@ body {
   .profile-page-header .username {
     font-size: 2.5rem;
   }
-  .profile-page-header p {
+  .profile-page-header .profile-page-p {
     font-size: 1.5rem;
   }
 
-  .profile-page {
+  .profile-page-bleats-container {
     background-color: #f2efeb;
     margin: 40px 0 20px 0;
     padding: 30px;
@@ -96,11 +99,11 @@ body {
   .bleats-title {
     width: 150px;
   }
-  .bleats-title h2 {
+  .bleats-title .profile-page-h2 {
     font-size: 2rem;
   }
 
-  .bleats-container p {
+  .bleats-container .bleats-container-p {
     font-size: 1.25rem;
   }
 }

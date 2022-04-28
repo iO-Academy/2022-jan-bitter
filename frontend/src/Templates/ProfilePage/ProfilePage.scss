@@ -1,13 +1,5 @@
 @import '../../Variables.scss';
 
-body {
-  background-color: $off-white;
-  font-size: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  color: $dark-grey;
-}
-
 .profile-page-container {
   padding: 0 40px 0 40px;
 }
@@ -15,6 +7,10 @@ body {
 .profile-image {
   max-width: 270px;
   padding: 20px 0;
+}
+
+.profile-page-logo {
+  width: 70px;
 }
 
 .profile-page-header {
@@ -33,19 +29,20 @@ body {
   justify-content: center;
   width: 80%;
 
-  h1 {
+  .profile-page-h1 {
     font-size: 2rem;
     margin: 10px;
     text-transform: uppercase;
   }
-  p {
+  .profile-page-p {
     font-size: 1rem;
     margin: 5px;
     text-align: center;
+    color: $dark-grey;
   }
 }
 
-.profile-page {
+.profile-page-bleats-container {
   padding: 10px;
 }
 
@@ -56,22 +53,25 @@ body {
   height: auto;
   text-align: center;
 
-  h2 {
+  .profile-page-h2 {
     margin: 5px;
     font-size: 1.5rem;
     text-transform: uppercase;
+    color: $dark-grey;
   }
 }
 
 .bleats-container {
-  p {
+  .bleats-container-p {
     font-size: 1rem;
+    color: $dark-grey;
+    margin: 10px 0 10px 0;
   }
 }
 
 @media only screen and (min-width: 600px) {
   body {
-    background: url("./lemons-background-transparency.png") scroll;
+    background: url("lemons-background-transparency.png") scroll;
   }
   .profile-page-navbar {
     background-color: $off-white;
@@ -80,29 +80,32 @@ body {
     .nav-icon {
       width: 70px
     }
+    .profile-page-logo {
+      width: 90px;
+    }
   }
   .profile-page-header {
     background-color: $off-white;
     .username {
       font-size: 2.5rem;
     }
-    p {
+    .profile-page-p {
       font-size: 1.5rem;
     }
   }
-  .profile-page {
+  .profile-page-bleats-container {
     background-color: $off-white;
     margin: 40px 0 20px 0;
     padding: 30px;
   }
   .bleats-title {
     width: 150px;
-    h2 {
+    .profile-page-h2 {
       font-size: 2rem;
     }
   }
   .bleats-container {
-    p {
+    .bleats-container-p {
       font-size: 1.25rem;
     }
   }
