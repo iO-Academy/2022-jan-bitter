@@ -4,6 +4,5 @@ const createApiResponse = (status, message, data) => {
         message: message,
         data: data
     }
-
 }
 export default createApiResponse

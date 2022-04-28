@@ -54,7 +54,6 @@ supertokens.init({
                                 let userId = response.user.id
                                 let username = formFields[2].value
                                 await queryDb('INSERT INTO `user_data` (`user_id`,`username`) VALUES ("' + userId + '", "' + username + '")')
-
                             }
                             return response;
                         }
