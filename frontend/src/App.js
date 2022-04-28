@@ -60,8 +60,7 @@ const App = () => {
             {/*This renders the login UI on the /auth route*/}
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
-              <Route path={'/'} element={<RedirectWelcome />} />
-              <Route path={'/BleatFeed'} element={<BleatFeed apiFetch={apiFetch}/>} />
+              <Route path={'/'} element={<RedirectWelcome  apiFetch={apiFetch}/>} />
             <Route path={'/:username'} element={<ProfilePage apiFetch={apiFetch}/>} />
           </Routes>
         </BrowserRouter>

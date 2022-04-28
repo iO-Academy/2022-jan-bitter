@@ -1,14 +1,15 @@
 import LandingPage from "../LandingPage/LandingPage";
 import React from "react"
 import {useSessionContext} from "supertokens-auth-react/recipe/session";
+import BleatFeed from "../../Molecules/BleatFeed/BleatFeed";
 
-const Welcome = () => {
+const Welcome = (props) => {
 
     let {doesSessionExist} = useSessionContext();
 
     return(
         <>
-            {(doesSessionExist) ? (<h1>Profile page</h1>) : (<LandingPage />)}
+            {(doesSessionExist) ? (<BleatFeed apiFetch={props.apiFetch}/>) : (<LandingPage />)}
         </>
 
     )
