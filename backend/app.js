@@ -6,6 +6,7 @@ import Session from "supertokens-node/recipe/session/index.js";
 import EmailPassword from "supertokens-node/recipe/emailpassword/index.js";
 import { errorHandler } from "supertokens-node/framework/express/index.js";
 import queryDb from "./scripts/queryDb.js";
+import validator from 'validator'
 
 
 supertokens.init({
@@ -102,9 +103,11 @@ app.get('/bleats', async (req, res) => {
 
 app.post('/bleats', async (req, res) => {
     const bleat = req.body.bleat
+    const sanitisedBleat = validator.escape(bleat)
     const userId = req.body.userId
+    const sanitiseUserID = validator.escape(userId)
     const bleatTime = Math.floor(+new Date() / 1000)
-    const query = 'INSERT INTO `bleats`(`bleat_user_id`, `bleat`, `bleat_time`) VALUES ("' + userId + '", "' + bleat + '", "' + bleatTime + '")'
+    const query = 'INSERT INTO `bleats`(`bleat_user_id`, `bleat`, `bleat_time`) VALUES ("' + sanitiseUserID + '", "' + sanitisedBleat + '", "' + bleatTime + '")'
     const data = await queryDb(query)
     res.json(data)
 })
