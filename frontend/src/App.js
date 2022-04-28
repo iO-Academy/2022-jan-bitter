@@ -47,7 +47,7 @@ const App = () => {
   }
 
   const fetchUserDetails = async () => {
-    let response = await apiFetch('http://localhost:300/users')
+    let response = await apiFetch('http://localhost:3001/users')
     return response
   }
 
