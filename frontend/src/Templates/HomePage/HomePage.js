@@ -1,18 +1,24 @@
 import './HomePage.scss'
+import BleatFeed from "../../Molecules/BleatFeed/BleatFeed";
 
 const HomePage = () => {
+    const apiFetch = async (url) => {
+        let data = await fetch('http://127.0.0.1:3001'+url)
+        return await data.json()
+    }
+
     return(
         <>
             {/*<NavBar />*/}
             <main className={'home-page-container'}>
                 <div className={'page-header'}>
-                    <h1>HOME</h1>
+                    <h1>home</h1>
                 </div>
                 <div className={'write-bleat-container'}>
                     {/*insert componet here */}
                 </div>
                 <div className={'bleats-feed-container'}>
-                    {/*insert componet here */}
+                    <BleatFeed apiFetch={apiFetch}/>
                 </div>
             </main>
         </>

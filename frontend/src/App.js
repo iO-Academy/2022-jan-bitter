@@ -11,11 +11,6 @@ import HomePage from "./Templates/HomePage/HomePage";
 import Bleat from "./Atoms/Bleat/Bleat";
 import BleatFeed from "./Molecules/BleatFeed/BleatFeed";
 
-const apiFetch = async (url) => {
-  let data = await fetch('http://127.0.0.1:3001'+url)
-  return await data.json()
-}
-
 SuperTokens.init({
   appInfo: {
     // learn more about this on https://supertokens.com/docs/emailpassword/appinfo

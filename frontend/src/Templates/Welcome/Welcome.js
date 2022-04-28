@@ -1,6 +1,7 @@
 import LandingPage from "../LandingPage/LandingPage";
 import React from "react"
 import {useSessionContext} from "supertokens-auth-react/recipe/session";
+import HomePage from "../HomePage/HomePage";
 
 const Welcome = () => {
 
@@ -8,7 +9,7 @@ const Welcome = () => {
 
     return(
         <>
-            {(doesSessionExist) ? (<h1>Profile page</h1>) : (<LandingPage />)}
+            {(doesSessionExist) ? (<HomePage />) : (<LandingPage />)}
         </>
 
     )
