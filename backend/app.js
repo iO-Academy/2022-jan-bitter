@@ -7,6 +7,7 @@ import EmailPassword from "supertokens-node/recipe/emailpassword/index.js";
 import { errorHandler } from "supertokens-node/framework/express/index.js";
 import queryDb from "./scripts/queryDb.js";
 import validator from 'validator'
+import createApiResponse from "./scripts/formatApiResponse.js";
 
 
 supertokens.init({
@@ -53,7 +54,6 @@ supertokens.init({
                                 let userId = response.user.id
                                 let username = formFields[2].value
                                 await queryDb('INSERT INTO `user_data` (`user_id`,`username`) VALUES ("' + userId + '", "' + username + '")')
-
                             }
                             return response;
                         }
@@ -80,6 +80,28 @@ app.use(middleware());
 app.use(express.json())
 // ...your API routes
 
+app.get('/username/:username', async (req, res) => {
+    const username = req.params.username
+    const query = 'SELECT `user_bio` FROM `user_data` WHERE `username` = "' + username + '"'
+    const data = await queryDb(query)
+    if (data.length === 0) {
+        res.json(createApiResponse(404, 'No such user', data))
+    } else {
+        res.json(createApiResponse(200, 'User data retrieved', data))
+    }
+})
+
+app.get('/userId/:userId', async (req, res) => {
+    const userId = req.params.userId
+    const query = 'SELECT `username`, `user_bio` FROM `user_data` WHERE `user_id` = "' + userId + '"'
+    const data = await queryDb(query)
+    if (data.length === 0) {
+        res.json(createApiResponse(404, 'No such user', data))
+    } else {
+        res.json(createApiResponse(200, 'User data retrieved', data))
+    }
+})
+
 app.get('/bleats', async (req, res) => {
 
     let jsonResponse
@@ -98,7 +120,11 @@ app.get('/bleats', async (req, res) => {
         jsonResponse = bleats
     }
 
-    res.json(jsonResponse)
+    if (jsonResponse.length === 0) {
+        res.json(createApiResponse(404, 'No bleats found', jsonResponse))
+    } else {
+        res.json(createApiResponse(200, 'Bleats retrieved', jsonResponse))
+    }
 })
 
 app.post('/bleats', async (req, res) => {
@@ -109,7 +135,7 @@ app.post('/bleats', async (req, res) => {
     const bleatTime = Math.floor(+new Date() / 1000)
     const query = 'INSERT INTO `bleats`(`bleat_user_id`, `bleat`, `bleat_time`) VALUES ("' + sanitiseUserID + '", "' + sanitisedBleat + '", "' + bleatTime + '")'
     const data = await queryDb(query)
-    res.json(data)
+    res.json(createApiResponse(200, 'Bleat posted', data))
 })
 
 

@@ -8,6 +8,11 @@ import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-
 import * as reactRouterDom from "react-router-dom";
 import RedirectWelcome from "./Templates/RedirectWelcome/RedirectWelcome";
 
+const apiFetch = async (url) => {
+  let data = await fetch('http://127.0.0.1:3001'+url)
+  return await data.json()
+}
+
 SuperTokens.init({
   appInfo: {
     // learn more about this on https://supertokens.com/docs/emailpassword/appinfo
@@ -24,7 +29,14 @@ SuperTokens.init({
           formFields: [{
             id: "username",
             label: "Losername",
-            placeholder: "Put something smart..."
+            placeholder: "Put something smart...",
+            validate: async (value) => {
+              let response = await apiFetch('/username/' + value)
+              if (response.status !== 200) {
+                return undefined; // means that there is no error
+              }
+              return "This username is already taken";
+            }
           }]
         }
       },
