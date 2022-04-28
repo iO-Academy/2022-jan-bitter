@@ -1,7 +1,7 @@
 .bleatCard {
   display: flex;
   flex-direction: row;
-  width: 750px;
+  width: 100%;
   padding: 10px;
   background-color: #f2efeb;
   border: 4px solid #f9d905;

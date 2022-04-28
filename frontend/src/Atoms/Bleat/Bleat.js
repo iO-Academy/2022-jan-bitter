@@ -7,7 +7,7 @@ const Bleat = (props) => {
             <div className="bleatContents">
                 <h2>@{props.username}</h2>
                 <p className="bleatText">{props.bleat}</p>
-                <p className="bleatTime"> bleated: {props.bleatTime}</p>
+                <p className="bleatTime"> bleated: {props.bleat_time}</p>
             </div>
         </div>
     )
