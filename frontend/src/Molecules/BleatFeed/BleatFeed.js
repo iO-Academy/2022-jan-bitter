@@ -3,9 +3,8 @@ import {useEffect, useState} from "react";
 
 
 const BleatFeed = (props) => {
+    const [bleats, setBleats] = useState([])
 
-const [bleats, setBleats] = useState([])
-    const [reloadBleats, setRealoadBleats] = useState(false)
 
 useEffect(() => {
     const fetchAllBleats = async () => {
@@ -13,7 +12,7 @@ useEffect(() => {
         setBleats(response.data)
     }
     fetchAllBleats()
-}, [])
+}, [props.reloadBleats])
 
     return (
         <>
