@@ -4,7 +4,7 @@ import NewBleat from "../../Molecules/NewBleat/NewBleat";
 import Navbar from "../../Molecules/Navbar/Navbar";
 import {useState} from "react";
 
-const HomePage = () => {
+const HomePage = (props) => {
     const [reloadBleats, setReloadBleats] = useState(false)
 
     const apiFetch = async (url) => {
@@ -14,7 +14,7 @@ const HomePage = () => {
 
     return(
         <>
-            <Navbar />
+            <Navbar apiFetch={props.apiFetch}/>
             <main className={'home-page-container'}>
                 <div className={'page-header'}>
                     <h1>home</h1>

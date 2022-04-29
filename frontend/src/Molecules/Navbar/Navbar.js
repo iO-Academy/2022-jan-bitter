@@ -16,6 +16,10 @@ const Navbar = (props) => {
         window.location.href = "/" + userName;
     }
 
+    const navigateHome = () => {
+        window.location.href = "/"
+    }
+
     return (
         <>
             <nav className="profile-page-navbar">
@@ -26,7 +30,7 @@ const Navbar = (props) => {
                     </a>
                 </div>
                 <div className={'nav-content'}>
-                    <a>
+                    <a onClick={navigateHome}>
                         <BittrLogo style={"navbar-logo"}/>
                         <p className="home-p">Home</p>
                     </a>
