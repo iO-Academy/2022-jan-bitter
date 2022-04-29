@@ -1,0 +1,62 @@
+.newBleat-container {
+  max-width: 500px;
+  height: 100%;
+  border: 5px solid #F9D905;
+  display: flex;
+  padding: 15px;
+  gap: 10px;
+  margin: 20px 0 20px 0;
+}
+
+.newBleat-profile-picture {
+  width: 80px;
+}
+
+.newBleat-text-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.newBleat-textarea {
+  width: 100%;
+  min-height: 5rem;
+  border: 1px solid #F9D905;
+  background-color: #f2efeb;
+  resize: none;
+  font-size: 1.2rem;
+}
+
+.newBleat-sentiment-error {
+  font-size: 1rem;
+  color: #F39A22;
+}
+
+.newBleat-length-text {
+  font-size: 1rem;
+}
+
+.newBleat-error-message {
+  font-size: 1rem;
+  color: #F34822;
+}
+
+.newBleat-submit-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.newBleat-submit-button {
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  background-color: #8D8F84;
+  color: #ffffff;
+  padding: 5px 10px;
+  transition: all 0.5s;
+  &:hover {
+    color: #000000;
+    background-color: #F9D905;
+  }
+}

@@ -1,0 +1,60 @@
+@import '../../Variables.scss';
+
+.profile-page-navbar {
+  height: 100px;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.profile-icon {
+  width: 50px;
+}
+
+.logout-icon {
+  width: 50px;
+}
+
+.navbar-logo {
+  width: 70px;
+}
+
+.nav-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .profile-page-navbar {
+    background-color: $off-white;
+    margin: 20px 0 40px 0;
+    height: 100px;
+
+    .profile-icon {
+      width: 70px;
+      height: auto;
+    }
+
+    .log-out-button-container {
+      width: 70px;
+      height: 70px;
+    }
+    .logout-icon {
+      width: 70px;
+    }
+
+    .nav-logo {
+      width: 110px;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+@import '../../Variables.scss';
+
+.profile-page-container {
+  padding: 0 40px 0 40px;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  max-width: 270px;
+  padding: 20px 0;
+}
+
+.profile-page-header {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 30px 0;
+  width: 100%;
+}
+
+.profile-page-about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+
+
+  .profile-page-h1 {
+    font-size: 2rem;
+    margin: 10px;
+    text-transform: uppercase;
+  }
+  .profile-page-p {
+    font-size: 1rem;
+    margin: 5px;
+    text-align: center;
+    color: $dark-grey;
+  }
+}
+
+.profile-page-bleats-container {
+  padding: 10px;
+  width: 100%;
+}
+
+.bleats-title {
+  font-size: 1rem;
+  border: $lemon-yellow solid 2px;
+  width: 125px;
+  height: auto;
+  text-align: center;
+
+  .profile-page-h2 {
+    margin: 5px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: $dark-grey;
+  }
+}
+
+.bleats-container {
+
+  .bleats-container-p {
+    font-size: 1rem;
+    color: $dark-grey;
+    margin: 10px 0 10px 0;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background: url("lemons-background-transparency.png") scroll;
+  }
+  .profile-page-navbar {
+    background-color: $off-white;
+    margin: 20px 0 40px 0;
+    height: 100px;
+  }
+  .profile-page-header {
+    background-color: $off-white;
+    .username {
+      font-size: 2.5rem;
+    }
+    .profile-page-p {
+      font-size: 1.5rem;
+    }
+  }
+  .profile-page-bleats-container {
+    background-color: $off-white;
+    margin: 40px 0 20px 0;
+    padding: 30px;
+  }
+  .bleats-title {
+    width: 150px;
+    .profile-page-h2 {
+      font-size: 2rem;
+    }
+  }
+  .bleats-container {
+    .bleats-container-p {
+      font-size: 1.25rem;
+    }
+  }
+}
