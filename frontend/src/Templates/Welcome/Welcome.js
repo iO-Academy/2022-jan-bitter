@@ -9,7 +9,7 @@ const Welcome = (props) => {
 
     return(
         <>
-            {(doesSessionExist) ? (<HomePage />) : (<LandingPage />)}
+            {(doesSessionExist) ? (<HomePage apiFetch={props.apiFetch}/>) : (<LandingPage />)}
         </>
 
     )

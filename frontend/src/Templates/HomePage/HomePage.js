@@ -3,7 +3,7 @@ import BleatFeed from "../../Molecules/BleatFeed/BleatFeed";
 import NewBleat from "../../Molecules/NewBleat/NewBleat";
 import Navbar from "../../Molecules/Navbar/Navbar";
 
-const HomePage = () => {
+const HomePage = (props) => {
     const apiFetch = async (url) => {
         let data = await fetch('http://127.0.0.1:3001'+url)
         return await data.json()
@@ -11,7 +11,7 @@ const HomePage = () => {
 
     return(
         <>
-            <Navbar />
+            <Navbar apiFetch={props.apiFetch}/>
             <main className={'home-page-container'}>
                 <div className={'page-header'}>
                     <h1>home</h1>
