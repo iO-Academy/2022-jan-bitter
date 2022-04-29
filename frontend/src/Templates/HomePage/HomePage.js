@@ -1,6 +1,7 @@
 import './HomePage.scss'
 import BleatFeed from "../../Molecules/BleatFeed/BleatFeed";
 import NewBleat from "../../Molecules/NewBleat/NewBleat";
+import Navbar from "../../Molecules/Navbar/Navbar";
 
 const HomePage = () => {
     const apiFetch = async (url) => {
@@ -10,7 +11,7 @@ const HomePage = () => {
 
     return(
         <>
-            {/*<NavBar />*/}
+            <Navbar />
             <main className={'home-page-container'}>
                 <div className={'page-header'}>
                     <h1>home</h1>

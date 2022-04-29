@@ -60,7 +60,6 @@ const App = () => {
             {/*This renders the login UI on the /auth route*/}
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
-              <Route path={'/'} element={<RedirectWelcome />} />
             <Route path={'/'} element={
               <EmailPasswordAuth  requireAuth={false}>
                 <RedirectWelcome  apiFetch={apiFetch}/>
