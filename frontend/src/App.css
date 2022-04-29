@@ -6,6 +6,10 @@ body {
   background-color: #f2efeb;
   font-size: 10px;
   font-family: "Montserrat", sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {

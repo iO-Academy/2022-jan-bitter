@@ -34,10 +34,7 @@ const NewBleat = (props) => {
                 "bleat": bleatText
             })
         })
-        console.log(props.reloadBleats)
-
         props.setReloadBleats(!props.reloadBleats)
-        console.log(props.reloadBleats)
         setBleatText('')
     }
 
@@ -53,6 +50,7 @@ const NewBleat = (props) => {
                      id={'newBleat-textarea-id'}
                      name={'newBleat'}
                      onChange={event => updateInputValue(event)}
+                     value={bleatText}
                  />
                 <div>
                     <p className={'newBleat-sentiment-error'}>{sentimentError}</p>
