@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 const BleatFeed = (props) => {
 
 const [bleats, setBleats] = useState([])
+    const [reloadBleats, setRealoadBleats] = useState(false)
 
 useEffect(() => {
     const fetchAllBleats = async () => {
@@ -15,9 +16,9 @@ useEffect(() => {
 }, [])
 
     return (
-        <div>
+        <>
             {bleats.map((bleat) => <Bleat username={bleat.username} bleat={bleat.bleat} bleat_time={bleat.bleat_time} />)}
-        </div>
+        </>
 
     )
 }

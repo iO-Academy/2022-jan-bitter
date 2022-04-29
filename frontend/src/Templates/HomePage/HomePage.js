@@ -1,5 +1,6 @@
 import './HomePage.scss'
 import BleatFeed from "../../Molecules/BleatFeed/BleatFeed";
+import NewBleat from "../../Molecules/NewBleat/NewBleat";
 
 const HomePage = () => {
     const apiFetch = async (url) => {
@@ -15,7 +16,7 @@ const HomePage = () => {
                     <h1>home</h1>
                 </div>
                 <div className={'write-bleat-container'}>
-                    {/*insert componet here */}
+                    <NewBleat />
                 </div>
                 <div className={'bleats-feed-container'}>
                     <BleatFeed apiFetch={apiFetch}/>
