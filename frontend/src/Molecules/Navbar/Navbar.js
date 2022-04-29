@@ -3,20 +3,24 @@ import { signOut } from "supertokens-auth-react/recipe/emailpassword";
 import './Navbar.scss'
 import BittrLogo from "../../Atoms/BittrLogo/BittrLogo";
 
-const Navbar = () => {
+const Navbar = (props) => {
 
-    const handleClick = () => {
-        async function onLogout() {
-            await signOut();
-            window.location.href = "/";
-        }
+    async function onLogout() {
+        await signOut();
+        window.location.href = "/";
+    }
+
+    const navigateToProfile = async () => {
+        let response = await props.apiFetch('/getUserId/')
+        let userName = await response.data[0].username
+        window.location.href = "/" + userName;
     }
 
     return (
         <>
             <nav className="profile-page-navbar">
                 <div className={'nav-content'}>
-                    <a>
+                    <a onClick={navigateToProfile}>
                         <img className="profile-icon" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>
                         <p className="my-profile-p">My Profile</p>
                     </a>
@@ -28,7 +32,7 @@ const Navbar = () => {
                     </a>
                 </div>
                 <div className="log-out-button-container nav-content">
-                    <a onClick={handleClick}>
+                    <a onClick={onLogout}>
                         <img className="logout-icon" src="images/back-button-icon.png" alt="Profile image placeholder"/>
                         <p className="logout-p">Logout</p>
                     </a>

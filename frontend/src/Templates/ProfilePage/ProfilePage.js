@@ -30,7 +30,7 @@ const ProfilePage = (props) => {
 
     return (
         <div className="profile-page-container">
-            <Navbar />
+            <Navbar apiFetch={props.apiFetch} username={username}/>
             <header className="profile-page-header">
 
                 <img className="profile-image" src="images/profile-icon-placeholder.png" alt="Profile image placeholder"/>

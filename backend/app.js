@@ -91,14 +91,14 @@ app.get("/sessioninfo", verifySession(), async(req, res) => {
     });
 });
 
-app.get("/getuserID/:username", verifySession({sessionRequired: false}), async(req, res) => {
-
+app.get("/getUserId/", verifySession({sessionRequired: false}), async(req, res) => {
+// returns username for currently logged in user
     if (req.session !== undefined) {
         const userId = req.session.getUserId();
-        const usernameProvided = req.params.username
         const query = 'SELECT `username` FROM `user_data` WHERE `user_id` = "' + userId + '"'
         const data = await queryDb(query)
         console.log(data)
+        res.json(createApiResponse(200, 'username retrieved', data))
     } else {
         res.json(createApiResponse(401, 'user not logged in'))
     }
