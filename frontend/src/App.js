@@ -54,7 +54,7 @@ SuperTokens.init({
 
 const App = () => {
   return (
-      <div>
+      <div className={'template'}>
         <BrowserRouter>
           <Routes>
             {/*This renders the login UI on the /auth route*/}

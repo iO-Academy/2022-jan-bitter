@@ -2,16 +2,18 @@
 
 .home-page-container {
   padding: 0 40px 0 40px;
+  width: 100%;
+  max-width: 1000px;
 
 }
 
 .page-header {
-  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px 0 30px 0;
+  width: 100%;
   h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
