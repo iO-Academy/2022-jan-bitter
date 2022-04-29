@@ -20,6 +20,7 @@ const HomePage = (props) => {
                     <h1>home</h1>
                 </div>
                 <div className={'write-bleat-container'}>
+
                     <NewBleat setReloadBleats={setReloadBleats} reloadBleats={reloadBleats}/>
                 </div>
                 <div className={'bleats-feed-container'}>
