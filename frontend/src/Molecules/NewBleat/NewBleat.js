@@ -2,7 +2,7 @@ import './NewBleat.scss'
 import {useState} from "react";
 import sentiment from 'wink-sentiment';
 
-const NewBleat = () => {
+const NewBleat = (props) => {
 
     const [bleatText, setBleatText] = useState('')
     const [bleatLength, setBleatLength] = useState(0)
@@ -24,19 +24,23 @@ const NewBleat = () => {
     }
 
     const createBleat = async () => {
-        let response = await fetch('http://127.0.0.1:3001/bleats', {
+        await fetch('http://localhost:3001/bleats', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                "userId": '176d1e13-36cf-4338-85e3-611234464345',
                 "bleat": bleatText
             })
         })
-        console.log(response)
+        console.log(props.reloadBleats)
+
+        props.setReloadBleats(!props.reloadBleats)
+        console.log(props.reloadBleats)
+        setBleatText('')
     }
+
 
     return (
         <div className={'newBleat-container'}>

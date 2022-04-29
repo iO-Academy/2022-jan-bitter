@@ -1,7 +1,7 @@
 @import '../../Variables.scss';
 
 .profile-page-navbar {
-  height: 75px;
+  height: 100px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@
   width: 50px;
   height: 50px;
   cursor: pointer;
-  padding-right: 20px;
+  margin-right: 20px;
   a {
     width: 60px;
     height: 75px;
@@ -21,15 +21,17 @@
 
 .profile-icon {
   width: 50px;
-  padding-left: 20px;
+  height: auto;
+  margin-left: 20px;
 }
 
 .logout-icon {
   width: 50px;
+  height: auto;
 }
 
-.nav-logo {
-  width: 80px;
+.navbar-logo {
+  width: 90px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -39,7 +41,8 @@
     height: 100px;
 
     .profile-icon {
-      width: 70px
+      width: 70px;
+      height: auto;
     }
 
     .log-out-button-container {
@@ -51,7 +54,7 @@
     }
 
     .nav-logo {
-      width: 90px;
+      width: 110px;
     }
   }
 }

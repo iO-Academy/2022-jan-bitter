@@ -1,15 +1,20 @@
 import './App.scss';
 import React from 'react';
 
-import EmailPassword from "supertokens-auth-react/recipe/emailpassword";
+import EmailPassword, {EmailPasswordAuth} from "supertokens-auth-react/recipe/emailpassword";
 import Session from "supertokens-auth-react/recipe/session";
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import SuperTokens, { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react";
 import * as reactRouterDom from "react-router-dom";
 import RedirectWelcome from "./Templates/RedirectWelcome/RedirectWelcome";
-import HomePage from "./Templates/HomePage/HomePage";
 import Bleat from "./Atoms/Bleat/Bleat";
 import BleatFeed from "./Molecules/BleatFeed/BleatFeed";
+import ProfilePage from "./Templates/ProfilePage/ProfilePage";
+
+const apiFetch = async (url) => {
+  let data = await fetch('http://localhost:3001'+ url)
+  return await data.json()
+}
 
 SuperTokens.init({
   appInfo: {
@@ -56,6 +61,14 @@ const App = () => {
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
               <Route path={'/'} element={<RedirectWelcome />} />
+            <Route path={'/'} element={
+              <EmailPasswordAuth  requireAuth={false}>
+                <RedirectWelcome  apiFetch={apiFetch}/>
+              </EmailPasswordAuth>
+            } />
+
+            <Route path={'/:username'} element={<ProfilePage apiFetch={apiFetch}/>} />
+
           </Routes>
         </BrowserRouter>
       </div>
