@@ -12,6 +12,7 @@ const ProfilePage = (props) => {
     const [losername, setLosername] = useState(username)
     const [bio, setBio] = useState("")
     const [bleats, setBleats] = useState([])
+    const [reloadBleats, setReloadBleats] = useState(false)
 
     useEffect(  () => {
         const fetchUserProfileDate = async () => {
@@ -42,7 +43,7 @@ const ProfilePage = (props) => {
                 <div className="bleats-title">
                     <h2 className="profile-page-h2">Bleats</h2>
                 </div>
-                <NewBleat />
+                <NewBleat setReloadBleats={setReloadBleats} reloadBleats={reloadBleats}/>
                 <div className="bleats-container">
                     {bleats.map((bleat) => <Bleat username={bleat.username} bleat={bleat.bleat} bleat_time={bleat.bleat_time} />)}
                 </div>

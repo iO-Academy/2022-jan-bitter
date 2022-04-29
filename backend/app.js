@@ -4,6 +4,7 @@ import supertokens from "supertokens-node";
 import Session from "supertokens-node/recipe/session/index.js";
 import EmailPassword from "supertokens-node/recipe/emailpassword/index.js";
 import { middleware, errorHandler} from "supertokens-node/framework/express/index.js";
+import {verifySession} from "supertokens-node/recipe/session/framework/express/index.js"
 import queryDb from "./scripts/queryDb.js";
 import validator from 'validator'
 import createApiResponse from "./scripts/formatApiResponse.js";
@@ -79,6 +80,23 @@ app.use(middleware());
 app.use(express.json())
 // ...your API routes
 
+app.get("/sessioninfo", verifySession(), async(req, res) => {
+    debugger;
+    // let session = await Session.getSession(req, res);
+    // let data = await session.getSessionData()
+
+    let session = req.session
+    let userId = req.session.getUserId()
+    console.log(userId)
+
+    // console.log('Session', Session.getSession(req, res));
+    res.send({
+        sessionHandle: session.getHandle(),
+        userId: session.getUserId(),
+        accessTokenPayload: session.getAccessTokenPayload(),
+    });
+});
+
 app.get('/username/:username', async (req, res) => {
     const username = req.params.username
     const query = 'SELECT `user_bio` FROM `user_data` WHERE `username` = "' + username + '"'
@@ -139,17 +157,16 @@ app.get('/bleats', async (req, res) => {
     }
 })
 
-app.post('/bleats', async (req, res) => {
+app.post('/bleats', verifySession(), async (req, res) => {
     const bleat = req.body.bleat
     const sanitisedBleat = validator.escape(bleat)
 
     if (sanitisedBleat.length > 250) {
         res.json(createApiResponse(400, 'Bleats cannot be longer than 250 characters.'))
     }
-    const userId = req.body.userId
-    const sanitiseUserID = validator.escape(userId)
+    const userId = req.session.getUserId()
     const bleatTime = Math.floor(+new Date() / 1000)
-    const query = 'INSERT INTO `bleats`(`bleat_user_id`, `bleat`, `bleat_time`) VALUES ("' + sanitiseUserID + '", "' + sanitisedBleat + '", "' + bleatTime + '")'
+    const query = 'INSERT INTO `bleats`(`bleat_user_id`, `bleat`, `bleat_time`) VALUES ("' + userId + '", "' + sanitisedBleat + '", "' + bleatTime + '")'
     const data = await queryDb(query)
     res.json(createApiResponse(200, 'Bleat posted', data))
 
