@@ -13,7 +13,7 @@ const HomePage = (props) => {
     }
 
     return(
-        <>
+        <div className={'homepage-body'}>
             <Navbar apiFetch={props.apiFetch}/>
             <main className={'home-page-container'}>
                 <div className={'page-header'}>
@@ -27,7 +27,7 @@ const HomePage = (props) => {
                     <BleatFeed apiFetch={apiFetch} setRealoadBleats={setReloadBleats} reloadBleats={reloadBleats}/>
                 </div>
             </main>
-        </>
+        </div>
     )
 }
 
