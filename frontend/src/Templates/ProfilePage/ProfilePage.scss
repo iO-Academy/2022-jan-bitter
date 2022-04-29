@@ -40,6 +40,9 @@
 
 .profile-page-bleats-container {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bleats-title {
