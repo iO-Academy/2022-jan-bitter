@@ -26,7 +26,7 @@ const ProfilePage = (props) => {
             setBleats(response.data)
         }
         retrieveUserBleats()
-    }, [])
+    }, [reloadBleats])
 
     return (
         <div className="profile-page-container">
