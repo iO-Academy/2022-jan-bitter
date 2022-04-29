@@ -23,6 +23,13 @@
   color: #3b3a38;
 }
 
+a {
+  color: inherit;
+  /* blue colors for links too */
+  text-decoration: inherit;
+  /* no underline */
+}
+
 .bleatText {
   font-size: 1.25rem;
 }

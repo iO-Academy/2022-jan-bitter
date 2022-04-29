@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/src/Molecules/Navbar/Navbar.css.map
+/src/Templates/LandingPage/LandingPage.css.map
+/src/Atoms/button/Button.css.map
+/src/Atoms/BittrLogo/BittrLogo.css.map
+/src/App.css.map

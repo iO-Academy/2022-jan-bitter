@@ -82,20 +82,29 @@ app.use(express.json())
 
 app.get("/sessioninfo", verifySession(), async(req, res) => {
     debugger;
-    // let session = await Session.getSession(req, res);
-    // let data = await session.getSessionData()
-
     let session = req.session
     let userId = req.session.getUserId()
-    console.log(userId)
-
-    // console.log('Session', Session.getSession(req, res));
     res.send({
         sessionHandle: session.getHandle(),
         userId: session.getUserId(),
         accessTokenPayload: session.getAccessTokenPayload(),
     });
 });
+
+app.get("/getUserId/", verifySession({sessionRequired: false}), async(req, res) => {
+// returns username for currently logged in user
+    if (req.session !== undefined) {
+        const userId = req.session.getUserId();
+        const query = 'SELECT `username` FROM `user_data` WHERE `user_id` = "' + userId + '"'
+        const data = await queryDb(query)
+        console.log(data)
+        res.json(createApiResponse(200, 'username retrieved', data))
+    } else {
+        res.json(createApiResponse(401, 'user not logged in'))
+    }
+
+});
+
 
 app.get('/username/:username', async (req, res) => {
     const username = req.params.username
