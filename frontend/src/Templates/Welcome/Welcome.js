@@ -1,7 +1,7 @@
 import LandingPage from "../LandingPage/LandingPage";
 import React from "react"
 import {useSessionContext} from "supertokens-auth-react/recipe/session";
-import BleatFeed from "../../Molecules/BleatFeed/BleatFeed";
+import HomePage from "../HomePage/HomePage";
 
 const Welcome = (props) => {
 
@@ -9,7 +9,7 @@ const Welcome = (props) => {
 
     return(
         <>
-            {(doesSessionExist) ? (<BleatFeed apiFetch={props.apiFetch}/>) : (<LandingPage />)}
+            {(doesSessionExist) ? (<HomePage />) : (<LandingPage />)}
         </>
 
     )
