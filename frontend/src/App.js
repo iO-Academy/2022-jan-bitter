@@ -9,9 +9,10 @@ import * as reactRouterDom from "react-router-dom";
 import RedirectWelcome from "./Templates/RedirectWelcome/RedirectWelcome";
 import Bleat from "./Atoms/Bleat/Bleat";
 import BleatFeed from "./Molecules/BleatFeed/BleatFeed";
+import ProfilePage from "./Templates/ProfilePage/ProfilePage";
 
 const apiFetch = async (url) => {
-  let data = await fetch('http://127.0.0.1:3001'+url)
+  let data = await fetch('http://127.0.0.1:3001'+ url)
   return await data.json()
 }
 
@@ -59,8 +60,8 @@ const App = () => {
             {/*This renders the login UI on the /auth route*/}
             {getSuperTokensRoutesForReactRouterDom(reactRouterDom)}
             {/*Your app routes*/}
-              <Route path={'/'} element={<RedirectWelcome />} />
-              <Route path={'/BleatFeed'} element={<BleatFeed apiFetch={apiFetch}/>} />
+              <Route path={'/'} element={<RedirectWelcome  apiFetch={apiFetch}/>} />
+            <Route path={'/:username'} element={<ProfilePage apiFetch={apiFetch}/>} />
           </Routes>
         </BrowserRouter>
       </div>

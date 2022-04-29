@@ -24,7 +24,7 @@ const NewBleat = () => {
     }
 
     const createBleat = async () => {
-        let response = await fetch('http://127.0.0.1:3001/bleats', {
+        await fetch('http://127.0.0.1:3001/bleats', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -35,7 +35,6 @@ const NewBleat = () => {
                 "bleat": bleatText
             })
         })
-        console.log(response)
     }
 
     return (
