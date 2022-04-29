@@ -10,7 +10,7 @@ const Bleat = (props) => {
         <div className="bleatCard">
             <img className="profile-icon-placeholder" src="/images/profile-icon-placeholder.png" alt="A placeholder image for the user profile" />
             <div className="bleatContents">
-                <h2>@{props.username}</h2>
+                <h2><a href={"/"+props.username}>@{props.username}</a></h2>
                 <p className="bleatText">{props.bleat}</p>
                 <p className="bleatTime"> bleated: {postedAt} at {time}</p>
             </div>
