@@ -3,3 +3,6 @@
 db/
 frontend/node_modules/
 backend/node_modules/
+/frontend/src/Templates/ProfilePage/ProfilePage.css.map
+/frontend/src/Molecules/NewBleat/NewBleat.css.map
+/frontend/src/Atoms/Image/Image.css.map
